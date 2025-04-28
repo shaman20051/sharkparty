@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
 export default defineConfig({
-  // base: '/sharkparty/', // 👈 имя твоего репозитория на GitHub
+  base: '/sharkparty/', // 👈 имя твоего репозитория на GitHub
   plugins: [vue()],
   resolve: {
     alias: {
