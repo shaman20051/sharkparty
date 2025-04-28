@@ -31,7 +31,7 @@ onMounted(async () => {
 
 
 
-  const index = await fetch('${basePath}/data/index_tournament.json').then(res => res.json())
+  const index = await fetch(`${basePath}/data/index_tournament.json`).then(res => res.json())
   const results = await Promise.all(
     index.map(file => fetch(`${basePath}/data/${file}`).then(res => res.json()))
   )
