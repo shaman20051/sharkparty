@@ -23,9 +23,17 @@ const selectTournament = (tournament) => {
 }
 
 onMounted(async () => {
-  const index = await fetch('/data/index_tournament.json').then(res => res.json())
+  const basePath = import.meta.env.BASE_URL;
+
+  const files = [
+    `${basePath}data/data_turnament_example.json`
+  ];
+
+
+
+  const index = await fetch('${basePath}/data/index_tournament.json').then(res => res.json())
   const results = await Promise.all(
-    index.map(file => fetch(`/data/${file}`).then(res => res.json()))
+    index.map(file => fetch(`${basePath}/data/${file}`).then(res => res.json()))
   )
   tournaments.value = results
 })
