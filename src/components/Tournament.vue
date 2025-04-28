@@ -146,7 +146,9 @@ const playersPerPage = ref(10)
 const currentPage = ref(1)
 
 onMounted(async () => {
-  const response = await fetch('/data/data_turnament_example.json')
+  const basePath = import.meta.env.BASE_URL;
+
+  const response = await fetch(`${basePath}/data/data_turnament_example.json`)
   data.value = await response.json()
   infoItems.value = {
     'Старт': new Date(data.value.startTime).toLocaleString('ru-RU'),

@@ -12,7 +12,7 @@ export default defineConfig({
   },
 
   build: {
-    outDir: 'dist',
+    outDir: 'docs',
     rollupOptions: {
       output: {
         assetFileNames: assetInfo => {
