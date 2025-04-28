@@ -12,6 +12,7 @@ export default defineConfig({
 
   build: {
     outDir: 'dist',
+    base: '/shaman20051/', // 👈 имя твоего репозитория на GitHub
     rollupOptions: {
       output: {
         assetFileNames: assetInfo => {
