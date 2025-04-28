@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 
 export default defineConfig({
-  base: '/shaman20051/', // 👈 имя твоего репозитория на GitHub
+  base: '', // 👈 имя твоего репозитория на GitHub
   plugins: [vue()],
   resolve: {
     alias: {
