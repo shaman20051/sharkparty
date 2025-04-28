@@ -1,19 +1,18 @@
 <template>
-  <div>
+  <main class="app-container">
     <TournamentList @select="selectTournament" :tournaments="tournaments" />
-    <Tournament />
-    <!-- <Leaderboard /> -->
-    <!-- <TournamentDetail v-if="selectedTournament" :tournament="selectedTournament" @close="selectedTournament = null" /> -->
-  </div>
+    <TournamentDetail
+      v-if="selectedTournament"
+      :tournament="selectedTournament"
+      @close="selectedTournament = null"
+    />
+  </main>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-
-import Tournament from './components/Tournament.vue'
 import TournamentList from './components/TournamentList.vue'
 import TournamentDetail from './components/TournamentDetail.vue'
-import Leaderboard from './components/Leaderboard.vue'
 
 const tournaments = ref([])
 const selectedTournament = ref(null)
@@ -23,7 +22,7 @@ const selectTournament = (tournament) => {
 }
 
 onMounted(async () => {
-  const index = await fetch('/data/index_tournament.json').then(res => res.json())
+  const index = await fetch('/data/index.json').then(res => res.json())
   const results = await Promise.all(
     index.map(file => fetch(`/data/${file}`).then(res => res.json()))
   )
@@ -31,3 +30,11 @@ onMounted(async () => {
 })
 
 </script>
+
+<style scoped>
+.app-container {
+  padding: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+</style>

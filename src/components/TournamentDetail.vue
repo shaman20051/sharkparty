@@ -6,7 +6,8 @@
       <p>Призовой фонд: ${{ tournament.info.prizePool }}</p>
       <p>Участников: {{ tournament.info.registered }}</p>
       <p>Повторных входов: {{ tournament.info.reEntered || 0 }}</p>
-  
+      
+      <button @click="$emit('close')">← Назад</button>
       <h3>👥 Игроки</h3>
       <ol>
         <li v-for="p in tournament.players" :key="p.rank">
