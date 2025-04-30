@@ -1,6 +1,6 @@
 <template>
   <section class="tournament" v-if="data.info">
-    <div class="tournaments-grid__cell tournaments-grid__cell--details">
+    <div class="tournaments-grid__cell tournaments-grid__cell--details" @click="$emit('close')">
        <a href="#" class="tournaments-grid__details-link">Список турниров</a>
     </div>
     <h1 class="tournament__title">Турнир "{{ data.info.name }}"</h1>
@@ -136,7 +136,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, defineProps, onMounted, watch, computed } from 'vue'
+
+const props = defineProps({
+    tournament: Object
+  })
 
 const data = ref({})
 const activeTab = ref('info')
@@ -146,18 +150,33 @@ const playersPerPage = ref(10)
 const currentPage = ref(1)
 
 onMounted(async () => {
-  const basePath = import.meta.env.BASE_URL;
-
-  const response = await fetch(`${basePath}/data/data_turnament_example.json`)
-  data.value = await response.json()
-  infoItems.value = {
-    'Старт': new Date(data.value.startTime).toLocaleString('ru-RU'),
-    'Гарантия': `$${data.value.info.prizePool.toLocaleString()}`,
-    'Бай-ин': `$${data.value.info.buyIn}`,
-    'Статус': data.value.status.trim(),
-    'Длительность': data.value.duration
-  }
+  // const basePath = import.meta.env.BASE_URL;
+  
+  // const response = await fetch(`${basePath}/data/data_turnament_example.json`)
+  // data.value = await response.json()
+  
+  // data.value = props.tournament
+  // infoItems.value = {
+  //   'Старт': new Date(data.value.startTime).toLocaleString('ru-RU'),
+  //   'Гарантия': `$${data.value.info.prizePool.toLocaleString()}`,
+  //   'Бай-ин': `$${data.value.info.buyIn}`,
+  //   'Статус': data.value.status.trim(),
+  //   'Длительность': data.value.duration
+  // }
 })
+
+watch(() => props.tournament, (newVal) => {
+  if (!newVal) return
+  data.value = newVal
+  infoItems.value = {
+    'Старт': new Date(newVal.startTime).toLocaleString('ru-RU'),
+    'Гарантия': `$${newVal.info.prizePool.toLocaleString()}`,
+    'Бай-ин': `$${newVal.info.buyIn}`,
+    'Статус': newVal.status.trim(),
+    'Длительность': newVal.duration
+  }
+}, { immediate: true })
+
 
 const countries = computed(() => {
   const set = new Set(data.value.players?.map(p => p.player.country.toUpperCase()))

@@ -1,0 +1,30 @@
+{
+    "leaderboardName": "Недельный",
+    "startTime": "2025-04-21T16:00:00+03:00",
+    "endTime": "2025-04-28T16:00:00+03:00",
+    "status": "Completed  ",
+    "info": "В лидерборд учитываются все турниры, прошедшие в указанный период с бай-ином от $1. Очки начисляются по формуле: (призовые / бай-ин) × коэффициент места.",
+    "pointsCountFormula": "(prize / bayin) * place",
+    "indexFiles": "index_leaderboard_weekly.json",
+    "players": [
+        {
+            "player": {
+                "nickname": "artem210021",
+                "country": "by",
+                "avatar": "./1600_finish_files/m_67fd2b16e.png"
+            },
+            [
+                "tournamentId": "0x598D217...3C78", // from contract tournament
+            "rank": 1,
+            "prize": 1000,
+            "points": 42
+            ],
+            [
+                "tournamentId": "0x598D217...3C00", // from contract tournament
+            "rank": 86,
+            "prize": 0,
+            "points": 0
+            ]
+        },
+    ]
+}

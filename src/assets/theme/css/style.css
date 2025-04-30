@@ -2062,3 +2062,10 @@ footer {
 					}
 /* END Секция  ТУРНИР */
 
+/* Страница турнира - layout */
+.tournament-page {
+	display: flex;
+}
+.tournament-page__left {}
+.tournament-page__right {}
+/* END Страница турнира - layout */

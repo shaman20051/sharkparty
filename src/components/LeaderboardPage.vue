@@ -1,9 +1,16 @@
 <template>
-  <div>
-    <h2>Главная страница</h2>
-    <!-- <TournamentList @select="selectTournament" :tournaments="tournaments" /> -->
-    <!-- <Tournament /> -->
-    <!-- <Leaderboard /> -->
+  <div class="tournament-page">
+    <!-- <div class="tournament-page__left">
+        <TournamentList 
+        v-if="!selectedTournament"
+        @select="selectTournament" :tournaments="tournaments" />
+    </div> 
+
+    <div class="tournament-page__right">
+        <Tournament v-if="selectedTournament" :tournament="selectedTournament" @close="selectedTournament = null"/>
+    </div> -->
+
+    <Leaderboard />
     <!-- <TournamentDetail v-if="selectedTournament" :tournament="selectedTournament" @close="selectedTournament = null" /> -->
   </div>
 </template>
@@ -11,10 +18,10 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-import Tournament from './components/Tournament.vue'
-import TournamentList from './components/TournamentList.vue'
-import TournamentDetail from './components/TournamentDetail.vue'
-import Leaderboard from './components/Leaderboard.vue'
+// import Tournament from '@/components/Tournament.vue'
+// import TournamentList from '@/components/TournamentList.vue'
+// import TournamentDetail from './components/TournamentDetail.vue'
+import Leaderboard from '@/components/Leaderboard.vue'
 
 const tournaments = ref([])
 const selectedTournament = ref(null)

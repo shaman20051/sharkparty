@@ -60,7 +60,7 @@
                     <a href="#" class="tournaments-grid__leaderboard-link">Ежедневный</a>
                 </div>
                 <div class="tournaments-grid__cell tournaments-grid__cell--details">
-                    <a href="#" class="tournaments-grid__details-link">Подробнее</a>
+                    <a href="#" class="tournaments-grid__details-link" @click="$emit('select', t)">Подробнее</a>
                 </div>
             </div>
         </div>
@@ -77,7 +77,7 @@
 </section>
 
 
-
+<!-- 
 
     <ul>
       <li v-for="t in tournaments" :key="t.startTime">
@@ -85,7 +85,7 @@
         ${{ t.info.buyIn }} бай-ин — ${{ t.info.prizePool }} приз
         <button @click="$emit('select', t)">Подробнее</button>
       </li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 

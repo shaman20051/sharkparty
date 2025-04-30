@@ -14,6 +14,11 @@ export default defineConfig({
   build: {
     outDir: 'docs',
     rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        tournament: path.resolve(__dirname, 'tournament.html'),
+        // leaderboard: path.resolve(__dirname, 'leaderboard.html')
+      },
       output: {
         assetFileNames: assetInfo => {
           const ext = path.extname(assetInfo.name).slice(1)
