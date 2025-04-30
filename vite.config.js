@@ -17,7 +17,7 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'index.html'),
         tournament: path.resolve(__dirname, 'tournament.html'),
-        // leaderboard: path.resolve(__dirname, 'leaderboard.html')
+        leaderboard: path.resolve(__dirname, 'leaderboard.html')
       },
       output: {
         assetFileNames: assetInfo => {

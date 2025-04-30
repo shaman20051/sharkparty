@@ -65,11 +65,15 @@
 			});
 
 			// Close dropdowns when clicking outside
-			document.addEventListener('click', (event) => {
-				if (!event.target.closest('.dropdown')) {
-					closeAllDropdowns();
-				}
+			document.addEventListener('DOMContentLoaded', () => {
+
+				document.addEventListener('click', (event) => {
+					if (!event.target.closest('.dropdown')) {
+						closeAllDropdowns();
+					}
+				});
 			});
+
 
 			function closeAllDropdowns(exceptDropdown = null) {
 				document.querySelectorAll('.dropdown.' + ACTIVE_DROPDOWN_MOD).forEach(activeDropdown => {
@@ -158,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const filtersForm = document.querySelector('.tournaments-filters__form');
     const isMobile = window.matchMedia('(max-width: 800px)').matches;
     
-    if (!isMobile) {
+    if (filtersForm && !isMobile) {
         const selects = filtersForm.querySelectorAll('.tournaments-filters__select');
         selects.forEach(select => {
             select.addEventListener('change', function() {
