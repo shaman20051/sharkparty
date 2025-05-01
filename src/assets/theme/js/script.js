@@ -65,14 +65,20 @@
 			});
 
 			// Close dropdowns when clicking outside
-			document.addEventListener('DOMContentLoaded', () => {
-
-				document.addEventListener('click', (event) => {
-					if (!event.target.closest('.dropdown')) {
-						closeAllDropdowns();
-					}
-				});
+			document.addEventListener('click', (event) => {
+				if (!event.target.closest('.dropdown')) {
+					closeAllDropdowns();
+				}
 			});
+			// правка от чатжпт - рекомендует оборачивать... но чот плохо работает, перестает закрываться... пока закоментим
+			// document.addEventListener('DOMContentLoaded', () => {
+
+			// 	document.addEventListener('click', (event) => {
+			// 		if (!event.target.closest('.dropdown')) {
+			// 			closeAllDropdowns();
+			// 		}
+			// 	});
+			// });
 
 
 			function closeAllDropdowns(exceptDropdown = null) {
