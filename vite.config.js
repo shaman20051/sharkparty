@@ -18,6 +18,8 @@ export default defineConfig({
         main: path.resolve(__dirname, 'index.html'),
         tournament: path.resolve(__dirname, 'tournament.html'),
         leaderboard: path.resolve(__dirname, 'leaderboard.html')
+        bingo: path.resolve(__dirname, 'bingo.html')
+        contacts: path.resolve(__dirname, 'contacts.html')
       },
       output: {
         assetFileNames: assetInfo => {
