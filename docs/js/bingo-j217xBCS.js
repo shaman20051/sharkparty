@@ -1,0 +1,1 @@
+import{d as n}from"./script-_nmGqW4k.js";import{_ as o}from"./_plugin-vue_export-helper-DlAUqK2U.js";const r={};function t(e,p){return" App wait bingo... "}const c=o(r,[["render",t]]);n(c).mount("#bingo-app");
