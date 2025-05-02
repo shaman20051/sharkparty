@@ -11,3 +11,5 @@
         - таблица:
         </div> 
 </template>
+
+<script setup></script>

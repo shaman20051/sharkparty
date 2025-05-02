@@ -199,7 +199,7 @@ const totalPages = computed(() => {
   return Math.ceil(filteredPlayers.value.length / playersPerPage.value)
 })
 </script>
-
+<!-- 
 <style scoped>
 .tournament__player {
   display: flex;
@@ -242,4 +242,4 @@ const totalPages = computed(() => {
   color: white;
   font-weight: bold;
 }
-</style>
+</style> -->
