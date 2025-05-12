@@ -156,6 +156,38 @@
                     "text": "3) SH1P1T"
                 }
             ]
+        },
+        {
+            "id": 217895,
+            "type": "message",
+            "date": "2025-04-24T16:21:42",
+            "date_unixtime": "1745500902",
+            "from": "GGsucks",
+            "from_id": "user1191394924",
+            "reply_to_message_id": 217882,
+            "text": "Просто комментарий на текущие события",
+            "text_entities": [
+                {
+                    "type": "plain",
+                    "text": "Просто комментарий на текущие события"
+                }
+            ]
+        },
+        {
+            "id": 217896,
+            "type": "message",
+            "date": "2025-04-24T16:21:43",
+            "date_unixtime": "1745500903",
+            "from": "GGsucks",
+            "from_id": "user1191394924",
+            "reply_to_message_id": 217882,
+            "text": "10) andrewgorbach",
+            "text_entities": [
+                {
+                    "type": "plain",
+                    "text": "10) andrewgorbach"
+                }
+            ]
         }
     ]
 }

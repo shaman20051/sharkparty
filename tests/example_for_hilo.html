@@ -1211,6 +1211,545 @@ footer {
 
 		<div id="content" class="content">
 			<main class="content__main">
+
+
+				<section class="bingo">
+					<!-- Блок "Список розыгрышей" -->
+					<div class="bingo-list">
+						<h2 class="bingo-list__title">Список розыгрышей</h2>
+						
+						<div class="bingo-grid">
+							<!-- Шапка таблицы -->
+							<div class="bingo-grid__header bingo-grid__row">
+								<div class="bingo-grid__cell bingo-grid__cell--date">Дата</div>
+								<div class="bingo-grid__cell bingo-grid__cell--name">Название розыгрыша</div>
+								<div class="bingo-grid__cell bingo-grid__cell--details"></div>
+							</div>
+							
+							<!-- Строки с розыгрышами -->
+							<div class="bingo-grid__row">
+								<div class="bingo-grid__cell bingo-grid__cell--date">15/мая/2024</div>
+								<div class="bingo-grid__cell bingo-grid__cell--name">Билеты на Shark Party 10000</div>
+								<div class="bingo-grid__cell bingo-grid__cell--details">
+									<a href="#bingo-weekly" class="bingo-grid__details-link">Подробнее</a>
+								</div>
+							</div>
+							
+							<div class="bingo-grid__row">
+								<div class="bingo-grid__cell bingo-grid__cell--date">12/мая/2024</div>
+								<div class="bingo-grid__cell bingo-grid__cell--name">Билеты на главный турнир недели</div>
+								<div class="bingo-grid__cell bingo-grid__cell--details">
+									<a href="#bingo-main" class="bingo-grid__details-link">Подробнее</a>
+								</div>
+							</div>
+							
+							<div class="bingo-grid__row">
+								<div class="bingo-grid__cell bingo-grid__cell--date">01/мая/2024</div>
+								<div class="bingo-grid__cell bingo-grid__cell--name">Билеты на финальный турнир месяца</div>
+								<div class="bingo-grid__cell bingo-grid__cell--details">
+									<a href="#bingo-final" class="bingo-grid__details-link">Подробнее</a>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Пагинация -->
+						<div class="bingo-pagination">
+							<button class="bingo-pagination__prev" aria-label="Предыдущая страница">←</button>
+							<button class="bingo-pagination__page" aria-label="Страница 1">1</button>
+							<button class="bingo-pagination__page" aria-label="Страница 2">2</button>
+							<button class="bingo-pagination__page" aria-label="Страница 3">3</button>
+							<button class="bingo-pagination__next" aria-label="Следующая страница">→</button>
+						</div>
+					</div>
+				
+					<!-- Блок "Розыгрыш" -->
+					<div class="bingo-details" id="bingo-weekly">
+						<div class="bingo-header">
+							<h2 class="bingo-header__title">Розыгрыш билетов на еженедельный турнир</h2>
+							<div class="bingo-header__period">15/мая/2024 - 22/мая/2024</div>
+						</div>
+						
+						<div class="bingo-conditions">
+							<h3 class="bingo-conditions__title">Условия проведения:</h3>
+							<p class="bingo-conditions__text">Для участия в розыгрыше необходимо сделать репост указанного поста в Telegram и оставить комментарий с вашим никнеймом в MTT. Победители будут выбраны случайным образом среди всех участников, выполнивших условия.</p>
+						</div>
+						
+						<div class="bingo-table">
+							<div class="bingo-details-grid">
+								<!-- Шапка таблицы -->
+								<div class="bingo-details-grid__header bingo-details-grid__row">
+									<div class="bingo-details-grid__cell bingo-details-grid__cell--date">Дата</div>
+									<div class="bingo-details-grid__cell bingo-details-grid__cell--telegram">idTelegram</div>
+									<div class="bingo-details-grid__cell bingo-details-grid__cell--mtt">idMTT</div>
+									<div class="bingo-details-grid__cell bingo-details-grid__cell--details"></div>
+								</div>
+								
+								<!-- Строки с участниками -->
+								<div class="bingo-details-grid__row bingo-details-grid__row--participant" data-participant-id="1">
+									<div class="bingo-details-grid__cell bingo-details-grid__cell--date">15/мая/2024 14:30:22</div>
+									<div class="bingo-details-grid__cell bingo-details-grid__cell--telegram">Kentavr</div>
+									<div class="bingo-details-grid__cell bingo-details-grid__cell--mtt">
+										<div>Kentavr</div>
+										<div>KentavrPro</div>
+									</div>
+									<div class="bingo-details-grid__cell bingo-details-grid__cell--details">
+										<button class="bingo-details-grid__details-btn" aria-expanded="false" aria-controls="participant-1-posts">Подробнее</button>
+									</div>
+								</div>
+								
+								<!-- Детализация по постам участника (скрыта по умолчанию) -->
+								<div class="bingo-details-grid__row bingo-details-grid__row--posts" id="participant-1-posts" hidden>
+									<div class="bingo-details-grid__cell bingo-details-grid__cell--full" colspan="4">
+										<div class="participant-posts">
+											<div class="participant-posts__header participant-posts__row">
+												<div class="participant-posts__cell participant-posts__cell--date">Дата</div>
+												<div class="participant-posts__cell participant-posts__cell--text">Пост</div>
+											</div>
+											
+											<div class="participant-posts__row">
+												<div class="participant-posts__cell participant-posts__cell--date">15/мая/2024 14:30:22</div>
+												<div class="participant-posts__cell participant-posts__cell--text">Репостнул и комментирую! Мой ник в MTT: Kentavr, KentavrPro</div>
+											</div>
+											
+											<div class="participant-posts__row">
+												<div class="participant-posts__cell participant-posts__cell--date">14/мая/2024 09:15:07</div>
+												<div class="participant-posts__cell participant-posts__cell--text">Участвую в розыгрыше, хочу выиграть билет!</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Еще один участник -->
+								<div class="bingo-details-grid__row bingo-details-grid__row--participant" data-participant-id="2">
+									<div class="bingo-details-grid__cell bingo-details-grid__cell--date">15/мая/2024 16:45:10</div>
+									<div class="bingo-details-grid__cell bingo-details-grid__cell--telegram">BigBaby</div>
+									<div class="bingo-details-grid__cell bingo-details-grid__cell--mtt">
+										<div>BigBaby</div>
+										<div>BabyShark</div>
+									</div>
+									<div class="bingo-details-grid__cell bingo-details-grid__cell--details">
+										<button class="bingo-details-grid__details-btn" aria-expanded="false" aria-controls="participant-2-posts">Подробнее</button>
+									</div>
+								</div>
+								
+								<div class="bingo-details-grid__row bingo-details-grid__row--posts" id="participant-2-posts" hidden>
+									<div class="bingo-details-grid__cell bingo-details-grid__cell--full" colspan="4">
+										<div class="participant-posts">
+											<div class="participant-posts__header participant-posts__row">
+												<div class="participant-posts__cell participant-posts__cell--date">Дата</div>
+												<div class="participant-posts__cell participant-posts__cell--text">Пост</div>
+											</div>
+											
+											<div class="participant-posts__row">
+												<div class="participant-posts__cell participant-posts__cell--date">15/мая/2024 16:45:10</div>
+												<div class="participant-posts__cell participant-posts__cell--text">Участвую! Ники: BigBaby, BabyShark</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<style>
+				/* Общие стили */
+				.bingo {
+					margin-bottom: 40px;
+					font-family: Arial, sans-serif;
+					color: var(--text-color, #333);
+				}
+				
+				/* Стили для списка розыгрышей */
+				.bingo-list {
+					margin-bottom: 40px;
+				}
+				
+				.bingo-list__title {
+					font-size: 1.8rem;
+					margin-bottom: 20px;
+					color: var(--text-color);
+				}
+				
+				.bingo-grid {
+					display: grid;
+					grid-template-columns: 1fr 2fr 120px;
+					gap: 1px;
+					margin-bottom: 30px;
+					background-color: var(--border-color, #ddd);
+					border-radius: 8px;
+					overflow: hidden;
+				}
+				
+				.bingo-grid__header {
+					font-weight: 500;
+					background-color: var(--header-bg, #f5f5f5);
+					color: var(--text-color);
+				}
+				
+				.bingo-grid__row {
+					display: contents;
+				}
+				
+				.bingo-grid__row:hover .bingo-grid__cell {
+					background-color: var(--hover-bg, #f0f0f0);
+				}
+				
+				.bingo-grid__cell {
+					padding: 12px 15px;
+					background-color: var(--content-bg, #fff);
+					display: flex;
+					align-items: center;
+				}
+				
+				.bingo-grid__details-link {
+					display: inline-block;
+					padding: 6px 12px;
+					background-color: var(--accent-color, #4CAF50);
+					color: var(--header-bg, #fff);
+					border-radius: 4px;
+					font-weight: 500;
+					font-size: 0.9rem;
+					transition: background-color 0.2s ease;
+					text-decoration: none;
+				}
+				
+				.bingo-grid__details-link:hover {
+					background-color: var(--hover-color, #45a049);
+					text-decoration: none;
+				}
+				
+				/* Пагинация */
+				.bingo-pagination {
+					display: flex;
+					justify-content: center;
+					gap: 5px;
+					margin-top: 20px;
+				}
+				
+				.bingo-pagination__prev,
+				.bingo-pagination__next,
+				.bingo-pagination__page {
+					padding: 8px 12px;
+					border: 1px solid var(--border-color, #ddd);
+					background-color: var(--content-bg, #fff);
+					border-radius: 4px;
+					cursor: pointer;
+					transition: background-color 0.2s ease;
+				}
+				
+				.bingo-pagination__prev:hover,
+				.bingo-pagination__next:hover,
+				.bingo-pagination__page:hover {
+					background-color: var(--hover-bg, #f0f0f0);
+				}
+				
+				.bingo-pagination__page--active {
+					background-color: var(--accent-color, #4CAF50);
+					color: var(--header-bg, #fff);
+				}
+				
+				/* Стили для деталей розыгрыша */
+				.bingo-header {
+					margin-bottom: 20px;
+				}
+				
+				.bingo-header__title {
+					font-size: 1.8rem;
+					margin-bottom: 5px;
+					color: var(--text-color);
+				}
+				
+				.bingo-header__period {
+					color: var(--text-muted, #666);
+					font-size: 1rem;
+				}
+				
+				.bingo-conditions {
+					background-color: var(--widget-bg, #f9f9f9);
+					padding: 20px;
+					border-radius: 8px;
+					margin-bottom: 25px;
+					box-shadow: 0 1px 3px var(--shadow-color, rgba(0,0,0,0.1));
+				}
+				
+				.bingo-conditions__title {
+					font-size: 1.3rem;
+					margin-bottom: 10px;
+					color: var(--text-color);
+				}
+				
+				.bingo-conditions__text {
+					margin-bottom: 15px;
+					line-height: 1.5;
+				}
+				
+				.bingo-table {
+					margin-top: 30px;
+				}
+				
+				.bingo-details-grid {
+					display: grid;
+					grid-template-columns: 1fr 1fr 1fr 120px;
+					gap: 1px;
+					margin-bottom: 30px;
+					background-color: var(--border-color, #ddd);
+					border-radius: 8px;
+					overflow: hidden;
+				}
+				
+				.bingo-details-grid__header {
+					font-weight: 500;
+					background-color: var(--header-bg, #f5f5f5);
+					color: var(--text-color);
+				}
+				
+				.bingo-details-grid__row {
+					display: contents;
+				}
+				
+				.bingo-details-grid__row--participant:hover .bingo-details-grid__cell {
+					background-color: var(--hover-bg, #f0f0f0);
+				}
+				
+				.bingo-details-grid__cell {
+					padding: 12px 15px;
+					background-color: var(--content-bg, #fff);
+					display: flex;
+					align-items: center;
+				}
+				
+				.bingo-details-grid__cell--full {
+					grid-column: 1 / -1;
+					padding: 0;
+				}
+				
+				.bingo-details-grid__details-btn {
+					display: inline-block;
+					padding: 6px 12px;
+					background-color: var(--accent-color, #4CAF50);
+					color: var(--header-bg, #fff);
+					border-radius: 4px;
+					font-weight: 500;
+					font-size: 0.9rem;
+					transition: background-color 0.2s ease;
+					text-decoration: none;
+					border: none;
+					cursor: pointer;
+				}
+				
+				.bingo-details-grid__details-btn:hover {
+					background-color: var(--hover-color, #45a049);
+					text-decoration: none;
+				}
+				
+				.bingo-details-grid__details-btn[aria-expanded="true"] {
+					background-color: var(--hover-color, #45a049);
+				}
+				
+				.participant-posts {
+					width: 100%;
+					padding: 15px;
+					background-color: var(--widget-bg, #f9f9f9);
+				}
+				
+				.participant-posts__header {
+					font-weight: 500;
+					margin-bottom: 10px;
+				}
+				
+				.participant-posts__row {
+					display: grid;
+					grid-template-columns: 1fr 2fr;
+					gap: 1px;
+					margin-bottom: 1px;
+				}
+				
+				.participant-posts__cell {
+					padding: 8px 10px;
+					background-color: var(--content-bg, #fff);
+				}
+				
+				/* Адаптивные стили */
+				@media (max-width: 800px) {
+					.bingo-grid,
+					.bingo-details-grid {
+						grid-template-columns: 1fr;
+						background-color: transparent;
+						gap: 15px;
+					}
+					
+					.bingo-grid__header,
+					.bingo-details-grid__header {
+						display: none;
+					}
+					
+					.bingo-grid__row,
+					.bingo-details-grid__row {
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+						gap: 1px;
+						background-color: var(--border-color, #ddd);
+						border-radius: 8px;
+						overflow: hidden;
+						margin-bottom: 15px;
+					}
+					
+					.bingo-grid__cell,
+					.bingo-details-grid__cell {
+						grid-column: span 1;
+					}
+					
+					.bingo-grid__cell--date,
+					.bingo-details-grid__cell--date {
+						grid-column: 1;
+					}
+					
+					.bingo-grid__cell--name,
+					.bingo-details-grid__cell--telegram {
+						grid-column: 2;
+					}
+					
+					.bingo-grid__cell--details,
+					.bingo-details-grid__cell--details {
+						grid-column: 1;
+					}
+					
+					.bingo-details-grid__cell--mtt {
+						grid-column: 2;
+					}
+					
+					.bingo-details-grid__cell--full {
+						grid-column: 1 / -1;
+					}
+					
+					.bingo-grid__cell::before,
+					.bingo-details-grid__cell::before {
+						content: attr(data-label);
+						font-weight: 500;
+						margin-right: 8px;
+						color: var(--text-muted, #666);
+					}
+					
+					.bingo-grid__cell[class*="--date"]::before,
+					.bingo-details-grid__cell[class*="--date"]::before {
+						content: "Дата:";
+					}
+					
+					.bingo-grid__cell[class*="--name"]::before {
+						content: "Название:";
+					}
+					
+					.bingo-details-grid__cell[class*="--telegram"]::before {
+						content: "Telegram:";
+					}
+					
+					.bingo-details-grid__cell[class*="--mtt"]::before {
+						content: "MTT:";
+					}
+					
+					.bingo-grid__cell[class*="--details"]::before,
+					.bingo-details-grid__cell[class*="--details"]::before {
+						content: "";
+					}
+					
+					.participant-posts__row {
+						grid-template-columns: 1fr;
+						margin-bottom: 10px;
+					}
+					
+					.participant-posts__cell::before {
+						content: attr(data-label);
+						font-weight: 500;
+						margin-right: 8px;
+						color: var(--text-muted, #666);
+					}
+					
+					.participant-posts__cell[class*="--date"]::before {
+						content: "Дата:";
+					}
+					
+					.participant-posts__cell[class*="--text"]::before {
+						content: "Пост:";
+					}
+				}
+				
+				@media (max-width: 480px) {
+					.bingo-grid__row,
+					.bingo-details-grid__row {
+						grid-template-columns: 1fr;
+					}
+					
+					.bingo-grid__cell,
+					.bingo-details-grid__cell {
+						grid-column: 1 !important;
+					}
+				}
+				</style>
+				
+				<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					// Добавляем data-label для мобильных устройств
+					if (window.matchMedia('(max-width: 800px)').matches) {
+						const addLabels = (cells, prefix) => {
+							cells.forEach(cell => {
+								const label = cell.className.match(/--([a-z]+)/);
+								if (label) {
+									cell.setAttribute('data-label', prefix + label[1]);
+								}
+							});
+						};
+						
+						// Для списка розыгрышей
+						const bingoCells = document.querySelectorAll('.bingo-grid__cell');
+						addLabels(bingoCells, 'bingo-');
+						
+						// Для таблицы участников
+						const participantCells = document.querySelectorAll('.bingo-details-grid__cell');
+						addLabels(participantCells, 'participant-');
+						
+						// Для таблицы постов участника
+						const postCells = document.querySelectorAll('.participant-posts__cell');
+						addLabels(postCells, 'post-');
+					}
+					
+					// Обработка кнопок "Подробнее" в таблице участников
+					const detailButtons = document.querySelectorAll('.bingo-details-grid__details-btn');
+					detailButtons.forEach(button => {
+						button.addEventListener('click', function() {
+							const isExpanded = this.getAttribute('aria-expanded') === 'true';
+							const participantId = this.closest('.bingo-details-grid__row--participant').getAttribute('data-participant-id');
+							const postsRow = document.getElementById(`participant-${participantId}-posts`);
+							
+							this.setAttribute('aria-expanded', !isExpanded);
+							postsRow.hidden = isExpanded;
+							
+							// Анимация появления/скрытия
+							if (!isExpanded) {
+								postsRow.style.display = 'contents';
+								postsRow.hidden = false;
+							} else {
+								setTimeout(() => {
+									postsRow.style.display = 'none';
+								}, 200);
+							}
+						});
+					});
+					
+					// Обработка пагинации
+					const paginationPages = document.querySelectorAll('.bingo-pagination__page');
+					paginationPages.forEach(page => {
+						page.addEventListener('click', function() {
+							paginationPages.forEach(p => p.classList.remove('bingo-pagination__page--active'));
+							this.classList.add('bingo-pagination__page--active');
+						});
+					});
+				});
+				</script>
+
+
+
+
 				<nav class="breadcrumbs" aria-label="breadcrumb">
 					<ol class="breadcrumbs__list">
 						<li class="breadcrumbs__item">
