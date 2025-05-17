@@ -1,0 +1,741 @@
+<section class="bingo">
+    <!-- Блок "Розыгрыш" -->
+    <div class="bingo-details">
+        <div class="bingo-header">
+            <h2 class="bingo-header__title">Розыгрыш билетов на еженедельный турнир</h2>
+            <div class="bingo-header__period">15/мая/2024 - 22/мая/2024</div>
+        </div>
+        
+        <div class="bingo-conditions">
+            <h3 class="bingo-conditions__title">Условия проведения:</h3>
+            <p class="bingo-conditions__text">Для участия в розыгрыше необходимо сделать репост указанного поста в Telegram и оставить комментарий с вашим никнеймом в MTT. Победители будут выбраны случайным образом среди всех участников, выполнивших условия.</p>
+            
+            <button class="bingo-conditions__list-btn" id="showParticipantsBtn">Список</button>
+        </div>
+        
+        <div class="bingo-table">
+            <div class="bingo-details-grid">
+                <!-- Шапка таблицы -->
+                <div class="bingo-details-grid__header bingo-details-grid__row">
+                    <div class="bingo-details-grid__cell bingo-details-grid__cell--date">Дата</div>
+                    <div class="bingo-details-grid__cell bingo-details-grid__cell--telegram">idTelegram</div>
+                    <div class="bingo-details-grid__cell bingo-details-grid__cell--mtt">idMTT</div>
+                    <div class="bingo-details-grid__cell bingo-details-grid__cell--details"></div>
+                </div>
+                
+                <!-- Строки с участниками -->
+                <div class="bingo-details-grid__row bingo-details-grid__row--participant" data-participant-id="1">
+                    <div class="bingo-details-grid__cell bingo-details-grid__cell--date">15/мая/2024 14:30:22</div>
+                    <div class="bingo-details-grid__cell bingo-details-grid__cell--telegram">Kentavr</div>
+                    <div class="bingo-details-grid__cell bingo-details-grid__cell--mtt">
+                        <div>Kentavr</div>
+                        <div>KentavrPro</div>
+                    </div>
+                    <div class="bingo-details-grid__cell bingo-details-grid__cell--details">
+                        <button class="bingo-details-grid__details-btn" aria-expanded="false" aria-controls="participant-1-posts">Подробнее</button>
+                    </div>
+                </div>
+                
+                <!-- Детализация по постам участника (скрыта по умолчанию) -->
+                <div class="bingo-details-grid__row bingo-details-grid__row--posts" id="participant-1-posts" hidden>
+                    <div class="bingo-details-grid__cell bingo-details-grid__cell--full" colspan="4">
+                        <div class="participant-posts">
+                            <div class="participant-posts__header participant-posts__row">
+                                <div class="participant-posts__cell participant-posts__cell--date">Дата</div>
+                                <div class="participant-posts__cell participant-posts__cell--text">Пост</div>
+                            </div>
+                            
+                            <div class="participant-posts__row">
+                                <div class="participant-posts__cell participant-posts__cell--date">15/мая/2024 14:30:22</div>
+                                <div class="participant-posts__cell participant-posts__cell--text">Репостнул и комментирую! Мой ник в MTT: Kentavr, KentavrPro</div>
+                            </div>
+                            
+                            <div class="participant-posts__row">
+                                <div class="participant-posts__cell participant-posts__cell--date">14/мая/2024 09:15:07</div>
+                                <div class="participant-posts__cell participant-posts__cell--text">Участвую в розыгрыше, хочу выиграть билет!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Еще один участник -->
+                <div class="bingo-details-grid__row bingo-details-grid__row--participant" data-participant-id="2">
+                    <div class="bingo-details-grid__cell bingo-details-grid__cell--date">15/мая/2024 16:45:10</div>
+                    <div class="bingo-details-grid__cell bingo-details-grid__cell--telegram">BigBaby</div>
+                    <div class="bingo-details-grid__cell bingo-details-grid__cell--mtt">
+                        <div>BigBaby</div>
+                        <div>BabyShark</div>
+                    </div>
+                    <div class="bingo-details-grid__cell bingo-details-grid__cell--details">
+                        <button class="bingo-details-grid__details-btn" aria-expanded="false" aria-controls="participant-2-posts">Подробнее</button>
+                    </div>
+                </div>
+                
+                <div class="bingo-details-grid__row bingo-details-grid__row--posts" id="participant-2-posts" hidden>
+                    <div class="bingo-details-grid__cell bingo-details-grid__cell--full" colspan="4">
+                        <div class="participant-posts">
+                            <div class="participant-posts__header participant-posts__row">
+                                <div class="participant-posts__cell participant-posts__cell--date">Дата</div>
+                                <div class="participant-posts__cell participant-posts__cell--text">Пост</div>
+                            </div>
+                            
+                            <div class="participant-posts__row">
+                                <div class="participant-posts__cell participant-posts__cell--date">15/мая/2024 16:45:10</div>
+                                <div class="participant-posts__cell participant-posts__cell--text">Участвую! Ники: BigBaby, BabyShark</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Модальное окно "Список участников" -->
+<div class="modal" id="participantsModal" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-modal-close>
+        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal__header">
+                <h2 class="modal__title" id="modalTitle">Список участников</h2>
+                <button class="modal__close-btn" aria-label="Закрыть модальное окно" data-modal-close>×</button>
+            </div>
+            
+            <div class="modal__content">
+                <div class="participants-table">
+                    <div class="participants-grid">
+                        <!-- Шапка таблицы -->
+                        <div class="participants-grid__header participants-grid__row">
+                            <div class="participants-grid__cell participants-grid__cell--number">№</div>
+                            <div class="participants-grid__cell participants-grid__cell--mtt">idMTT</div>
+                            <div class="participants-grid__cell participants-grid__cell--telegram">idTelegram</div>
+                            <div class="participants-grid__cell participants-grid__cell--date">Дата/время</div>
+                        </div>
+                        
+                        <!-- Строки с участниками -->
+                        <div class="participants-grid__row">
+                            <div class="participants-grid__cell participants-grid__cell--number">1</div>
+                            <div class="participants-grid__cell participants-grid__cell--mtt">Kentavr, KentavrPro</div>
+                            <div class="participants-grid__cell participants-grid__cell--telegram">Kentavr</div>
+                            <div class="participants-grid__cell participants-grid__cell--date">15/мая/2024 14:30:22</div>
+                        </div>
+                        
+                        <div class="participants-grid__row">
+                            <div class="participants-grid__cell participants-grid__cell--number">2</div>
+                            <div class="participants-grid__cell participants-grid__cell--mtt">BigBaby, BabyShark</div>
+                            <div class="participants-grid__cell participants-grid__cell--telegram">BigBaby</div>
+                            <div class="participants-grid__cell participants-grid__cell--date">15/мая/2024 16:45:10</div>
+                        </div>
+                        
+                        <div class="participants-grid__row">
+                            <div class="participants-grid__cell participants-grid__cell--number">3</div>
+                            <div class="participants-grid__cell participants-grid__cell--mtt">PokerPro</div>
+                            <div class="participants-grid__cell participants-grid__cell--telegram">PokerPro</div>
+                            <div class="participants-grid__cell participants-grid__cell--date">15/мая/2024 18:20:35</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal__footer">
+                <button class="modal__btn modal__btn--copy" id="copyParticipantsBtn">Скопировать</button>
+                <button class="modal__btn modal__btn--download" id="downloadParticipantsBtn">Скачать</button>
+                <button class="modal__btn modal__btn--close" data-modal-close>Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Общие стили */
+.bingo {
+    margin-bottom: 40px;
+    font-family: Arial, sans-serif;
+    color: var(--text-color, #333);
+}
+
+/* Стили для заголовка розыгрыша */
+.bingo-header {
+    margin-bottom: 20px;
+}
+
+.bingo-header__title {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.bingo-header__period {
+    color: var(--text-muted, #666);
+    font-size: 1rem;
+}
+
+/* Стили для условий проведения */
+.bingo-conditions {
+    background-color: var(--widget-bg, #f9f9f9);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 1px 3px var(--shadow-color, rgba(0,0,0,0.1));
+    position: relative;
+}
+
+.bingo-conditions__title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.bingo-conditions__text {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.bingo-conditions__list-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--accent-color, #4CAF50);
+    color: var(--header-bg, #fff);
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.bingo-conditions__list-btn:hover {
+    background-color: var(--hover-color, #45a049);
+}
+
+/* Стили для таблицы с постами */
+.bingo-table {
+    margin-top: 30px;
+}
+
+.bingo-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 120px;
+    gap: 1px;
+    margin-bottom: 30px;
+    background-color: var(--border-color, #ddd);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.bingo-details-grid__header {
+    font-weight: 500;
+    background-color: var(--header-bg, #f5f5f5);
+    color: var(--text-color);
+}
+
+.bingo-details-grid__row {
+    display: contents;
+}
+
+.bingo-details-grid__row--participant:hover .bingo-details-grid__cell {
+    background-color: var(--hover-bg, #f0f0f0);
+}
+
+.bingo-details-grid__cell {
+    padding: 12px 15px;
+    background-color: var(--content-bg, #fff);
+    display: flex;
+    align-items: center;
+}
+
+.bingo-details-grid__cell--full {
+    grid-column: 1 / -1;
+    padding: 0;
+}
+
+.bingo-details-grid__details-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: var(--accent-color, #4CAF50);
+    color: var(--header-bg, #fff);
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.bingo-details-grid__details-btn:hover {
+    background-color: var(--hover-color, #45a049);
+    text-decoration: none;
+}
+
+.bingo-details-grid__details-btn[aria-expanded="true"] {
+    background-color: var(--hover-color, #45a049);
+}
+
+.participant-posts {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--widget-bg, #f9f9f9);
+}
+
+.participant-posts__header {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.participant-posts__row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1px;
+    margin-bottom: 1px;
+}
+
+.participant-posts__cell {
+    padding: 8px 10px;
+    background-color: var(--content-bg, #fff);
+}
+
+/* Стили для модального окна */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+
+.modal__container {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    background-color: var(--content-bg, #fff);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color, #ddd);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal__title {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.modal__close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-muted, #666);
+    padding: 0 10px;
+}
+
+.modal__close-btn:hover {
+    color: var(--text-color);
+}
+
+.modal__content {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.modal__footer {
+    padding: 15px 20px;
+    border-top: 1px solid var(--border-color, #ddd);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal__btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modal__btn--copy {
+    background-color: var(--accent-color, #4CAF50);
+    color: var(--header-bg, #fff);
+    border: none;
+}
+
+.modal__btn--copy:hover {
+    background-color: var(--hover-color, #45a049);
+}
+
+.modal__btn--download {
+    background-color: var(--secondary-color, #2196F3);
+    color: var(--header-bg, #fff);
+    border: none;
+}
+
+.modal__btn--download:hover {
+    background-color: var(--secondary-hover, #0b7dda);
+}
+
+.modal__btn--close {
+    background-color: var(--content-bg, #fff);
+    color: var(--text-color);
+    border: 1px solid var(--border-color, #ddd);
+}
+
+.modal__btn--close:hover {
+    background-color: var(--hover-bg, #f0f0f0);
+}
+
+/* Таблица участников в модальном окне */
+.participants-grid {
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr 1fr;
+    gap: 1px;
+    background-color: var(--border-color, #ddd);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.participants-grid__header {
+    font-weight: 500;
+    background-color: var(--header-bg, #f5f5f5);
+    color: var(--text-color);
+}
+
+.participants-grid__row {
+    display: contents;
+}
+
+.participants-grid__row:hover .participants-grid__cell {
+    background-color: var(--hover-bg, #f0f0f0);
+}
+
+.participants-grid__cell {
+    padding: 12px 15px;
+    background-color: var(--content-bg, #fff);
+    display: flex;
+    align-items: center;
+}
+
+/* Адаптивные стили */
+@media (max-width: 800px) {
+    .bingo-details-grid {
+        grid-template-columns: 1fr;
+        background-color: transparent;
+        gap: 15px;
+    }
+    
+    .bingo-details-grid__header {
+        display: none;
+    }
+    
+    .bingo-details-grid__row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background-color: var(--border-color, #ddd);
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 15px;
+    }
+    
+    .bingo-details-grid__cell {
+        grid-column: span 1;
+    }
+    
+    .bingo-details-grid__cell--date {
+        grid-column: 1;
+    }
+    
+    .bingo-details-grid__cell--telegram {
+        grid-column: 2;
+    }
+    
+    .bingo-details-grid__cell--mtt {
+        grid-column: 1;
+    }
+    
+    .bingo-details-grid__cell--details {
+        grid-column: 2;
+    }
+    
+    .bingo-details-grid__cell--full {
+        grid-column: 1 / -1;
+    }
+    
+    .bingo-details-grid__cell::before {
+        content: attr(data-label);
+        font-weight: 500;
+        margin-right: 8px;
+        color: var(--text-muted, #666);
+    }
+    
+    .bingo-details-grid__cell[class*="--date"]::before {
+        content: "Дата:";
+    }
+    
+    .bingo-details-grid__cell[class*="--telegram"]::before {
+        content: "Telegram:";
+    }
+    
+    .bingo-details-grid__cell[class*="--mtt"]::before {
+        content: "MTT:";
+    }
+    
+    .bingo-details-grid__cell[class*="--details"]::before {
+        content: "";
+    }
+    
+    .participant-posts__row {
+        grid-template-columns: 1fr;
+        margin-bottom: 10px;
+    }
+    
+    .participant-posts__cell::before {
+        content: attr(data-label);
+        font-weight: 500;
+        margin-right: 8px;
+        color: var(--text-muted, #666);
+    }
+    
+    .participant-posts__cell[class*="--date"]::before {
+        content: "Дата:";
+    }
+    
+    .participant-posts__cell[class*="--text"]::before {
+        content: "Пост:";
+    }
+    
+    /* Адаптация модального окна */
+    .modal__container {
+        width: 95%;
+        max-height: 90vh;
+    }
+    
+    .participants-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .participants-grid__header {
+        display: none;
+    }
+    
+    .participants-grid__row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background-color: var(--border-color, #ddd);
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 15px;
+    }
+    
+    .participants-grid__cell {
+        grid-column: span 1;
+    }
+    
+    .participants-grid__cell--number {
+        grid-column: 1;
+    }
+    
+    .participants-grid__cell--mtt {
+        grid-column: 2;
+    }
+    
+    .participants-grid__cell--telegram {
+        grid-column: 1;
+    }
+    
+    .participants-grid__cell--date {
+        grid-column: 2;
+    }
+    
+    .participants-grid__cell::before {
+        content: attr(data-label);
+        font-weight: 500;
+        margin-right: 8px;
+        color: var(--text-muted, #666);
+    }
+    
+    .participants-grid__cell[class*="--number"]::before {
+        content: "№:";
+    }
+    
+    .participants-grid__cell[class*="--mtt"]::before {
+        content: "MTT:";
+    }
+    
+    .participants-grid__cell[class*="--telegram"]::before {
+        content: "Telegram:";
+    }
+    
+    .participants-grid__cell[class*="--date"]::before {
+        content: "Дата:";
+    }
+}
+
+@media (max-width: 480px) {
+    .bingo-details-grid__row,
+    .participants-grid__row {
+        grid-template-columns: 1fr;
+    }
+    
+    .bingo-details-grid__cell,
+    .participants-grid__cell {
+        grid-column: 1 !important;
+    }
+    
+    .modal__footer {
+        flex-direction: column;
+    }
+    
+    .modal__btn {
+        width: 100%;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Добавляем data-label для мобильных устройств
+    if (window.matchMedia('(max-width: 800px)').matches) {
+        const addLabels = (cells, prefix) => {
+            cells.forEach(cell => {
+                const label = cell.className.match(/--([a-z]+)/);
+                if (label) {
+                    cell.setAttribute('data-label', prefix + label[1]);
+                }
+            });
+        };
+        
+        // Для таблицы участников
+        const participantCells = document.querySelectorAll('.bingo-details-grid__cell');
+        addLabels(participantCells, 'participant-');
+        
+        // Для таблицы постов участника
+        const postCells = document.querySelectorAll('.participant-posts__cell');
+        addLabels(postCells, 'post-');
+        
+        // Для таблицы в модальном окне
+        const modalCells = document.querySelectorAll('.participants-grid__cell');
+        addLabels(modalCells, 'modal-');
+    }
+    
+    // Обработка кнопок "Подробнее" в таблице участников
+    const detailButtons = document.querySelectorAll('.bingo-details-grid__details-btn');
+    detailButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            const participantId = this.closest('.bingo-details-grid__row--participant').getAttribute('data-participant-id');
+            const postsRow = document.getElementById(`participant-${participantId}-posts`);
+            
+            this.setAttribute('aria-expanded', !isExpanded);
+            postsRow.hidden = isExpanded;
+            
+            // Анимация появления/скрытия
+            if (!isExpanded) {
+                postsRow.style.display = 'contents';
+                postsRow.hidden = false;
+            } else {
+                setTimeout(() => {
+                    postsRow.style.display = 'none';
+                }, 200);
+            }
+        });
+    });
+    
+    // Обработка модального окна
+    const modal = document.getElementById('participantsModal');
+    const showModalBtn = document.getElementById('showParticipantsBtn');
+    const closeModalBtns = document.querySelectorAll('[data-modal-close]');
+    
+    // Показать модальное окно
+    showModalBtn.addEventListener('click', function() {
+        modal.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    // Закрыть модальное окно
+    closeModalBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            modal.classList.remove('is-active');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Закрыть при клике на оверлей
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.classList.remove('is-active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Копировать список участников
+    document.getElementById('copyParticipantsBtn').addEventListener('click', function() {
+        const participants = Array.from(document.querySelectorAll('.participants-grid__row:not(.participants-grid__header)')).map(row => {
+            const cells = Array.from(row.querySelectorAll('.participants-grid__cell'));
+            return cells.map(cell => cell.textContent).join('\t');
+        }).join('\n');
+        
+        navigator.clipboard.writeText(participants)
+            .then(() => alert('Список участников скопирован в буфер обмена'))
+            .catch(err => console.error('Ошибка копирования: ', err));
+    });
+    
+    // Скачать список участников
+    document.getElementById('downloadParticipantsBtn').addEventListener('click', function() {
+        const participants = Array.from(document.querySelectorAll('.participants-grid__row:not(.participants-grid__header)')).map(row => {
+            const cells = Array.from(row.querySelectorAll('.participants-grid__cell'));
+            return cells.map(cell => cell.textContent).join(',');
+        }).join('\n');
+        
+        const headers = Array.from(document.querySelectorAll('.participants-grid__header .participants-grid__cell'))
+            .map(cell => cell.textContent).join(',');
+        
+        const csvContent = headers + '\n' + participants;
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        
+        const link = document.createElement('a');
+        link.setAttribute('href', url);
+        link.setAttribute('download', 'участники_розыгрыша.csv');
+        link.style.visibility = 'hidden';
+        
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+});
+</script>
